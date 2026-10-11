@@ -1,0 +1,870 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHILORA JEWELERS</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+:root {
+    --teal: #368b8d;
+    --dark: #101419;
+    --light: #f5f7f6;
+    --text: #252a2b;
+}
+
+body {
+    color: var(--text);
+    background: white;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 6%;
+    gap: 15px;
+}
+
+.logo {
+    font-family: Georgia, serif;
+    font-size: 27px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--teal);
+}
+
+.search input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    width: 180px;
+}
+
+.search button {
+    padding: 10px 13px;
+    background: var(--teal);
+    color: white;
+    border: none;
+}
+
+.header-tools button {
+    border: none;
+    background: white;
+    font-size: 16px;
+    padding: 5px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 13px;
+    background: var(--teal);
+    color: white;
+    flex-wrap: wrap;
+}
+
+nav a {
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    color: #d9f5ef;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--dark);
+    color: white;
+    align-items: center;
+    min-height: 330px;
+}
+
+.hero-text {
+    padding: 45px 10%;
+}
+
+.hero-text small {
+    color: #80d3cc;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    font-size: 36px;
+    margin: 15px 0;
+    line-height: 1.2;
+}
+
+.hero p {
+    font-size: 13px;
+    color: #ccc;
+    line-height: 1.8;
+}
+
+.hero img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--teal);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin-top: 18px;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+section {
+    padding: 40px 6%;
+}
+
+.heading {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 21px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 25px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.product {
+    border: 1px solid #e8eeee;
+    padding: 12px;
+    text-align: center;
+    position: relative;
+}
+
+.product img {
+    width: 100%;
+    height: 135px;
+    object-fit: cover;
+}
+
+.product h3 {
+    font-size: 12px;
+    margin: 10px 0;
+}
+
+.product p {
+    color: #777;
+    font-size: 11px;
+}
+
+.price {
+    color: var(--teal);
+    font-weight: bold;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.product button {
+    background: var(--teal);
+    color: white;
+    border: none;
+    padding: 8px 10px;
+    font-size: 10px;
+    margin-top: 10px;
+}
+
+.product .heart {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: white;
+    color: #bb4560;
+    font-size: 17px;
+    padding: 5px;
+}
+
+.about {
+    background: var(--light);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 35px;
+    align-items: center;
+}
+
+.about img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.about h2 {
+    font-size: 23px;
+    margin-bottom: 15px;
+}
+
+.about p {
+    font-size: 13px;
+    line-height: 1.9;
+    color: #666;
+}
+
+.best-sellers {
+    background: linear-gradient(120deg, #326f70, #9ac4bb);
+}
+
+.best-sellers .heading,
+.best-sellers .subtitle {
+    color: white;
+}
+
+.best-sellers .product {
+    background: white;
+    color: #222;
+}
+
+.why {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 35px;
+}
+
+.why img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+}
+
+.why h2 {
+    margin-bottom: 15px;
+}
+
+.why p {
+    font-size: 13px;
+    line-height: 1.9;
+    color: #666;
+}
+
+.testimonials {
+    background: var(--light);
+}
+
+.review-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.review {
+    background: white;
+    border: 1px solid #d6e7e4;
+    border-left: 4px solid var(--teal);
+    border-radius: 15px;
+    padding: 22px;
+}
+
+.review .stars {
+    color: #e6b52c;
+}
+
+.review p {
+    font-size: 12px;
+    line-height: 1.8;
+    margin: 12px 0;
+    color: #666;
+}
+
+.review strong {
+    font-size: 12px;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 130px;
+    gap: 8px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    transition: opacity .2s;
+}
+
+.gallery img:hover {
+    opacity: .75;
+}
+
+.newsletter {
+    text-align: center;
+    background: linear-gradient(#347f80dd, #347f80dd),
+        url('https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=1200&q=80') center/cover;
+    color: white;
+}
+
+.newsletter p {
+    font-size: 12px;
+    margin-top: 12px;
+}
+
+.newsletter form {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.newsletter input {
+    width: 280px;
+    max-width: 65%;
+    padding: 12px;
+    border: none;
+}
+
+.newsletter button {
+    padding: 12px 18px;
+    border: none;
+    background: var(--dark);
+    color: white;
+}
+
+footer {
+    padding: 35px 6% 20px;
+    background: #f8f9f8;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.3fr 1fr 1fr 1.2fr;
+    gap: 25px;
+}
+
+footer h3 {
+    font-size: 12px;
+    margin-bottom: 14px;
+}
+
+footer p,
+footer a {
+    display: block;
+    color: #666;
+    font-size: 11px;
+    line-height: 2;
+}
+
+footer a:hover {
+    color: var(--teal);
+}
+
+.copyright {
+    border-top: 1px solid #ddd;
+    text-align: center;
+    padding-top: 18px;
+    margin-top: 25px;
+    font-size: 11px;
+    color: #777;
+}
+
+body.dark-mode {
+    background: #171b1d;
+    color: #f4f4f4;
+}
+
+body.dark-mode section:not(.hero):not(.best-sellers):not(.newsletter) {
+    background: #202627;
+}
+
+body.dark-mode .product,
+body.dark-mode .review,
+body.dark-mode footer {
+    background: #292f30;
+    color: white;
+}
+
+body.dark-mode .about {
+    background: #202627;
+}
+
+body.dark-mode .about p,
+body.dark-mode .why p,
+body.dark-mode .review p,
+body.dark-mode footer p,
+body.dark-mode footer a {
+    color: #ccc;
+}
+
+body.dark-mode .header-tools button {
+    background: #171b1d;
+    color: white;
+}
+
+@media(max-width:700px) {
+    .topbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero,
+    .about,
+    .why {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-text {
+        padding: 35px 8%;
+    }
+
+    .hero img {
+        height: 240px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .review-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    nav {
+        gap: 13px;
+    }
+
+    .search input {
+        width: 130px;
+    }
+}
+
+@media(max-width:400px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery {
+        grid-auto-rows: 100px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="topbar">
+        <a href="#" class="logo">Chilora<span>.</span></a>
+
+        <div class="search">
+            <input type="search" id="search"
+                   placeholder="Search jewelry..."
+                   oninput="renderProducts()">
+            <button onclick="renderProducts()">Search</button>
+        </div>
+
+        <div class="header-tools">
+            <button onclick="toggleTheme()" title="Change theme">◐</button>
+            <button onclick="showWishlist()" title="Wishlist">♡</button>
+            <button onclick="showCart()" title="Shopping cart">
+                🛒 <span id="cartCount">0</span>
+            </button>
+        </div>
+    </div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#products">Our Products</a>
+        <a href="#about">About Us</a>
+        <a href="#best">Best Sellers</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<div class="hero">
+    <div class="hero-text">
+        <small>TIMELESS BEAUTY</small>
+        <h1>Welcome to<br>Chilora Jewelers</h1>
+        <p>
+            Discover beautiful jewelry created for special moments.
+            Explore elegant rings, necklaces, bracelets and earrings
+            that complement your unique style.
+        </p>
+        <a href="#products" class="btn">Explore Collection</a>
+    </div>
+
+    <img
+        src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85"
+        alt="Elegant jewelry model">
+</div>
+
+<section id="products">
+    <h2 class="heading">Our Products</h2>
+    <p class="subtitle">Discover jewelry for every occasion.</p>
+
+    <div style="text-align:center;margin-bottom:22px">
+        <select id="category" onchange="renderProducts()"
+                style="padding:10px;border:1px solid #ddd">
+            <option value="All">All Jewelry</option>
+            <option value="Rings">Rings</option>
+            <option value="Necklaces">Necklaces</option>
+            <option value="Bracelets">Bracelets</option>
+            <option value="Earrings">Earrings</option>
+        </select>
+
+        <select id="sorting" onchange="renderProducts()"
+                style="padding:10px;border:1px solid #ddd">
+            <option value="featured">Featured</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+        </select>
+    </div>
+
+    <div class="products" id="productList"></div>
+
+    <p id="empty" style="display:none;text-align:center">
+        No jewelry matches your search.
+    </p>
+</section>
+
+<section class="about" id="about">
+    <img
+        src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=800&q=85"
+        alt="Jewelry collection">
+
+    <div>
+        <h2>About Chilora Jewelers</h2>
+        <p>
+            At Chilora Jewelers, we celebrate elegance, creativity and
+            individuality. Our collection brings together beautiful
+            jewelry styles suitable for celebrations, gifts and everyday
+            wear. We believe that the right accessory can make every
+            moment feel special.
+        </p>
+        <a href="#best" class="btn">Discover More</a>
+    </div>
+</section>
+
+<section class="best-sellers" id="best">
+    <h2 class="heading">Best Sellers</h2>
+    <p class="subtitle">Explore some of our favourite designs.</p>
+
+    <div class="products" id="bestList"></div>
+</section>
+
+<section class="why">
+    <div>
+        <h2>Why Choose Us?</h2>
+        <p>
+            We focus on attractive designs, thoughtful presentation and
+            a pleasant shopping experience. Our collection includes
+            styles for birthdays, anniversaries, celebrations and
+            everyday fashion. Browse our selections to discover pieces
+            that suit your taste and the occasion.
+        </p>
+        <a href="#products" class="btn">View Collection</a>
+    </div>
+
+    <img
+        src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=800&q=85"
+        alt="Elegant necklace">
+</section>
+
+<section class="testimonials">
+    <h2 class="heading">Our Clients' Testimonials</h2>
+    <p class="subtitle">What our customers say.</p>
+
+    <div class="review-grid">
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <strong>Amara Johnson</strong>
+            <p>
+                The jewelry designs are beautiful, and I enjoyed browsing
+                through the different collections. I found a lovely gift
+                for a special occasion.
+            </p>
+        </div>
+
+        <div class="review">
+            <div class="stars">★★★★★</div>
+            <strong>Chloe Williams</strong>
+            <p>
+                I love the variety of styles available. The website is
+                easy to use, and the product categories make browsing
+                straightforward.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section id="gallery">
+    <h2 class="heading">Jewelry Gallery</h2>
+    <p class="subtitle">A closer look at elegant designs.</p>
+
+    <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=500&q=80" alt="Jewelry design">
+        <img src="https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=500&q=80" alt="Gold accessories">
+        <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=500&q=80" alt="Necklace">
+        <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=500&q=80" alt="Ring">
+        <img src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=500&q=80" alt="Jewelry collection">
+        <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=500&q=80" alt="Bracelet">
+    </div>
+</section>
+
+<section class="newsletter">
+    <h2 class="heading">Join Our Newsletter</h2>
+    <p>Receive updates about new designs and special offers.</p>
+
+    <form onsubmit="subscribe(event)">
+        <input type="email" id="email"
+               placeholder="Enter your email address" required>
+        <button type="submit">Subscribe</button>
+    </form>
+</section>
+
+<footer id="contact">
+    <div class="footer-grid">
+        <div>
+            <a href="#" class="logo">Chilora<span>.</span></a>
+            <p>Jewelry that celebrates your special moments.</p>
+        </div>
+
+        <div>
+            <h3>Quick Links</h3>
+            <a href="#">Home</a>
+            <a href="#products">Our Products</a>
+            <a href="#about">About Us</a>
+            <a href="#best">Best Sellers</a>
+        </div>
+
+        <div>
+            <h3>Important Links</h3>
+            <a href="#contact">Shopping Guide</a>
+            <a href="#contact">Returns Policy</a>
+            <a href="#contact">Privacy Policy</a>
+            <a href="#contact">Help Center</a>
+        </div>
+
+        <div>
+            <h3>Contact Us</h3>
+            <p>Email: hello@chilora.example</p>
+            <p>Phone: +234 800 000 0000</p>
+            <p>Monday - Saturday</p>
+        </div>
+    </div>
+
+    <div class="copyright">
+        © 2026 Chilora Jewelers. All rights reserved.
+    </div>
+</footer>
+
+<script>
+const jewelry = [
+    {
+        name: "Classic Gold Ring",
+        category: "Rings",
+        price: 35,
+        image: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+        name: "Diamond Necklace",
+        category: "Necklaces",
+        price: 65,
+        image: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+        name: "Elegant Bracelet",
+        category: "Bracelets",
+        price: 28,
+        image: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+        name: "Pearl Earrings",
+        category: "Earrings",
+        price: 22,
+        image: "https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+        name: "Silver Ring",
+        category: "Rings",
+        price: 30,
+        image: "https://images.unsplash.com/photo-1603561596112-0a132b757442?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+        name: "Gold Chain",
+        category: "Necklaces",
+        price: 55,
+        image: "https://images.unsplash.com/photo-1617038220319-276d3cfab638?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+        name: "Charm Bracelet",
+        category: "Bracelets",
+        price: 32,
+        image: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=400&q=80"
+    },
+    {
+        name: "Fashion Earrings",
+        category: "Earrings",
+        price: 25,
+        image: "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=400&q=80"
+    }
+];
+
+let cart = [];
+let wishlist = [];
+
+function renderProducts() {
+    const search = document.getElementById("search")
+        .value.toLowerCase();
+
+    const category = document.getElementById("category").value;
+    const sorting = document.getElementById("sorting").value;
+
+    let list = jewelry.filter(item =>
+        item.name.toLowerCase().includes(search) &&
+        (category === "All" || item.category === category)
+    );
+
+    if (sorting === "low") {
+        list.sort((a, b) => a.price - b.price);
+    }
+
+    if (sorting === "high") {
+        list.sort((a, b) => b.price - a.price);
+    }
+
+    document.getElementById("productList").innerHTML =
+        list.map(item => `
+            <div class="product">
+                <button class="heart"
+                    onclick="toggleWishlist('${item.name}')">
+                    ${wishlist.includes(item.name) ? "♥" : "♡"}
+                </button>
+
+                <img src="${item.image}" alt="${item.name}">
+                <h3>${item.name}</h3>
+                <p>${item.category}</p>
+                <div class="price">$${item.price.toFixed(2)}</div>
+
+                <button onclick="addToCart('${item.name}')">
+                    Add to Cart
+                </button>
+            </div>
+        `).join("");
+
+    document.getElementById("empty").style.display =
+        list.length ? "none" : "block";
+
+    document.getElementById("bestList").innerHTML =
+        jewelry.slice(0, 4).map(item => `
+            <div class="product">
+                <img src="${item.image}" alt="${item.name}">
+                <h3>${item.name}</h3>
+                <p>${item.category}</p>
+                <div class="price">$${item.price.toFixed(2)}</div>
+                <button onclick="addToCart('${item.name}')">
+                    Add to Cart
+                </button>
+            </div>
+        `).join("");
+}
+
+function addToCart(name) {
+    cart.push(name);
+
+    document.getElementById("cartCount").textContent =
+        cart.length;
+
+    alert(name + " added to your shopping cart!");
+}
+
+function showCart() {
+    if (cart.length === 0) {
+        alert("Your shopping cart is empty.");
+        return;
+    }
+
+    const total = cart.reduce((sum, name) => {
+        const item = jewelry.find(product => product.name === name);
+        return sum + item.price;
+    }, 0);
+
+    alert(
+        "YOUR SHOPPING CART\n\n" +
+        cart.join("\n") +
+        "\n\nTotal: $" + total.toFixed(2)
+    );
+}
+
+function toggleWishlist(name) {
+    if (wishlist.includes(name)) {
+        wishlist = wishlist.filter(item => item !== name);
+    } else {
+        wishlist.push(name);
+    }
+
+    renderProducts();
+}
+
+function showWishlist() {
+    if (wishlist.length === 0) {
+        alert("Your wishlist is empty.");
+    } else {
+        alert("YOUR WISHLIST\n\n" + wishlist.join("\n"));
+    }
+}
+
+function toggleTheme() {
+    document.body.classList.toggle("dark-mode");
+}
+
+function subscribe(event) {
+    event.preventDefault();
+
+    const email = document.getElementById("email").value;
+
+    alert("Thank you for subscribing, " + email + "!");
+
+    document.getElementById("email").value = "";
+}
+
+renderProducts();
+</script>
+
+</body>
+</html>
